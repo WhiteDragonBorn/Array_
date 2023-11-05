@@ -1,8 +1,13 @@
 #pragma once
+#include <cmath>
 #include <cstddef>
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
 
 // typedef unsigned long long ull;
-typedef int data_t;
+typedef double data_t;
 
 class Array {
  private:
@@ -15,20 +20,24 @@ class Array {
   Array(size_t size) : size_(size) {
     arr = new data_t[size_];
     for (size_t i = 0; i < size_; i++) {
-      arr[i] = (data_t)i;
+      arr[i] = (data_t)i+1;
     }
   }
-
   Array(const Array&);
   Array& operator=(const Array&);
 
   size_t size() const noexcept { return size_; }
   const data_t* data() const { return arr; }
 
-  data_t& operator[](size_t index) const { return arr[index]; }
+  data_t& operator[](size_t index) { return arr[index]; }
+  const data_t& operator[](size_t index) const { return arr[index]; }
 
-  virtual Array& sum(const Array&) const = 0;
-  virtual Array& foreach (const Array&) = 0;
+  virtual Array* sum(const Array&) const = 0;
+  virtual void foreach () = 0;
 
-  virtual ~Array() { delete[] arr; }
+  friend std::ostream& operator<<(std::ostream&, const Array&);
+
+  virtual ~Array() { 
+    std::cout << "base dest"; 
+    delete[] arr; }
 };

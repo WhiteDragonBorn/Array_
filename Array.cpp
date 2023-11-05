@@ -17,5 +17,18 @@ Array& Array::operator=(const Array& other) {
     for (size_t i = 0; i < size_; i++) {
       arr[i] = other.arr[i];
     }
+    return *this;
   }
+  else {
+    throw("bad!");
+  }
+}
+
+std::ostream& operator<<(std::ostream& os, const Array& obj) {
+  for (size_t i = 0; i < obj.size_; i++)
+  {
+    os << obj.arr[i] << " ";
+  }
+  os << std::endl;
+  return os;
 }

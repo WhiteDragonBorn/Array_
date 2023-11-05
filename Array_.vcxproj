@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="AndArray.cpp" />
     <ClCompile Include="Array.cpp" />
+    <ClCompile Include="OrArray.cpp" />
     <ClCompile Include="source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AndArray.h" />
     <ClInclude Include="Array.h" />
+    <ClInclude Include="OrArray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
